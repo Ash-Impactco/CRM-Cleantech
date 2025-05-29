@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clean Tech CRM & AI Automation</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <style>
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .mermaid {
+            text-align: center;
+            margin: 2rem 0;
+        }
+        .mermaid svg {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <div class="container">
+        <h1 class="text-4xl font-bold text-center mb-8">Clean Tech CRM & AI Automation</h1>
+
+        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+            <h2 class="text-2xl font-semibold mb-4">Workflow Documentation</h2>
+            <div class="mermaid">
+                graph TD
+                    A[Lead Identification] --> B{AI Lead Scoring}
+                    B -->|High Score| C[Email Campaign Creation]
+                    B -->|Medium Score| D[LinkedIn Connection]
+                    B -->|Low Score| E[Lead Nurture]
+
+                    C --> F[Smart Follow-up System]
+                    F --> G[Performance Analysis]
+                    G --> H[Optimization]
+                    H --> C
+
+                    D --> I[Profile Optimization]
+                    I --> J[Connection Building]
+                    J --> K[Engagement Management]
+                    K --> L[Meeting Scheduling]
+                    L --> G
+
+                    H --> M[AI Model Update]
+                    M --> N[Workflow Optimization]
+                    N --> O[Performance Monitor]
+                    O --> H
+
+                    subgraph Email Marketing
+                    C --> F --> G
+                    end
+
+                    subgraph LinkedIn Marketing
+                    D --> I --> J --> K --> L
+                    end
+
+                    subgraph AI Integration
+                    B --> C
+                    B --> D
+                    B --> E
+                    G --> H --> M --> N --> O
+                    end
+
+                    subgraph Performance
+                    G --> H
+                    L --> G
+                    O --> H
+                    end
+            </div>
+        </div>
+
+        <div class="bg-white rounded-lg shadow-md p-6">
+            <h2 class="text-2xl font-semibold mb-4">Documentation</h2>
+            <div class="space-y-4">
+                <h3 class="text-xl font-semibold">Email Marketing Automation</h3>
+                <ul class="list-disc list-inside space-y-2">
+                    <li>AI-Powered Lead Scoring</li>
+                    <li>Smart Campaign Generation</li>
+                    <li>Automated Follow-up System</li>
+                    <li>Performance Analytics</li>
+                </ul>
+
+                <h3 class="text-xl font-semibold mt-4">LinkedIn Marketing</h3>
+                <ul class="list-disc list-inside space-y-2">
+                    <li>Profile Optimization</li>
+                    <li>Smart Connection Building</li>
+                    <li>Engagement Management</li>
+                    <li>Meeting Scheduling</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+</body>
+</html>
