@@ -7,8 +7,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "export": "node scripts/export.js",
     "analyze": "ANALYZE=true next build",
-    "deploy": "vercel",
+    "deploy": "npm run export && vercel",
     "postinstall": "prisma generate"
   },
   "dependencies": {

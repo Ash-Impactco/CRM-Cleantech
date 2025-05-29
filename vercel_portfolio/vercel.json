@@ -10,9 +10,20 @@
     {
       "src": "/(.*)",
       "dest": "/$1"
+    },
+    {
+      "src": "/",
+      "dest": "/index.html"
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/",
+      "destination": "/index.html"
     }
   ],
   "env": {
-    "NEXT_PUBLIC_ANALYTICS_ID": "${NEXT_PUBLIC_ANALYTICS_ID}"
+    "NEXT_PUBLIC_ANALYTICS_ID": "${NEXT_PUBLIC_ANALYTICS_ID}",
+    "VERCEL_URL": "${VERCEL_URL}"
   }
 }
