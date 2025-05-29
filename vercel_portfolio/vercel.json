@@ -1,0 +1,18 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "src/pages/index.tsx",
+      "use": "@vercel/static-export"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/"
+    }
+  ],
+  "analytics": {
+    "vercel": true
+  }
+}

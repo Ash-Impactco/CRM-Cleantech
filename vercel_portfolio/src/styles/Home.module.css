@@ -1,0 +1,87 @@
+.container {
+  min-height: 100vh;
+  padding: 0 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.main {
+  padding: 5rem 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.title {
+  margin: 0;
+  line-height: 1.15;
+  font-size: 4rem;
+  text-align: center;
+  color: #2c3e50;
+}
+
+.workflow {
+  width: 100%;
+  margin: 2rem 0;
+}
+
+.workflowDiagram {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+.documentation {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.documentation h2 {
+  color: #2c3e50;
+  margin-top: 0;
+}
+
+.documentation h3 {
+  color: #34495e;
+  margin-top: 1.5rem;
+}
+
+.documentation h4 {
+  color: #7f8c8d;
+  margin-top: 1rem;
+}
+
+.documentation ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.documentation li {
+  margin: 0.5rem 0;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.documentation li:before {
+  content: "•";
+  color: #3498db;
+  display: inline-block;
+  width: 1rem;
+  margin-left: -1.5rem;
+}
+
+.mermaid {
+  text-align: center;
+  margin: 2rem 0;
+}
