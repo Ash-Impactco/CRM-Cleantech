@@ -1,35 +1,91 @@
-# CRM-Cleantech
+# Clean Tech CRM Automation System
 
-## CRM Automation System
+A specialized CRM solution for B2B Cleantech companies, built in partnership with Cleantech GrowthLab.
 
-A full-stack CRM system with automated lead management and follow-up capabilities.
+## Key Features
 
-## Features
+- **Zero-Waste Growth Optimization**
+  - Automated pipeline tracking
+  - ROI-focused lead scoring
+  - Growth playbook integration
 
-- Lead management (Create, Read, Update, Delete)
-- Automated task creation for new leads
-- Email follow-up automation
-- RESTful API endpoints
-- SQLite database with SQLAlchemy ORM
-- Background task scheduling
+- **B2B Cleantech GTM Specialization**
+  - Industry-specific lead qualification
+  - Regulatory compliance tracking
+  - Long-cycle procurement management
 
-## Setup Instructions
+- **Integrated Growth Solutions**
+  - ABM strategy integration
+  - SEO & PPC optimization
+  - Marketing automation
+
+## Getting Started
+
+### Prerequisites
+
+- Python 3.9+
+- PostgreSQL 13+
+- Redis for caching
+- Node.js 16+
+- Git
+
+### Installation
 
 1. Clone the repository
-2. Install dependencies:
 ```bash
+git clone https://github.com/your-repo/clean-tech-crm.git
+cd clean-tech-crm
+```
+
+2. Install dependencies
+```bash
+# Backend
 pip install -r backend/requirements.txt
+
+# Frontend
+npm install
 ```
 
-3. Configure environment variables:
-- Copy `backend/.env.example` to `backend/.env`
-- Update SMTP credentials in `.env` file
-
-4. Run the backend server:
+3. Configure environment
 ```bash
-cd backend
-uvicorn main:app --reload
+cp .env.example .env
+# Edit .env with your credentials
 ```
+
+4. Initialize database
+```bash
+createdb crm_db
+alembic upgrade head
+```
+
+5. Start the application
+```bash
+# Backend
+uvicorn backend.main:app --reload
+
+# Frontend
+npm run dev
+```
+
+## API Documentation
+
+Detailed API documentation is available in [docs/api/api_documentation.md](docs/api/api_documentation.md)
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Submit a pull request
+4. Include test cases
+5. Update documentation
+
+## License
+
+MIT License
+
+## Support
+
+For support, please contact support@cleantechgrowthlab.com or visit our website at https://cleantechgrowthlab.com
 
 ## API Endpoints
 

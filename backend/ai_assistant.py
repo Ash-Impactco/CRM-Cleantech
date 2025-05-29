@@ -9,17 +9,61 @@ openai.api_key = os.getenv('OPENAI_API_KEY')
 
 class AIAssistant:
     def __init__(self):
-        self.system_prompt = """You are an AI assistant for a clean tech CRM system. 
-        Your role is to help generate personalized follow-up emails and analyze leads.
-        Focus on sustainability metrics and clean tech benefits in your responses."""
+        self.system_prompt = """You are a Cleantech GrowthLab expert specializing in B2B GTM strategies for clean tech companies.
+        Your role is to help craft high-impact communications and optimize growth strategies.
+        
+        Key principles:
+        1. Zero-waste growth focus - maximize ROI while minimizing CAC
+        2. B2B Cleantech GTM expertise - understand complex regulatory environments
+        3. Long-cycle procurement management - optimize for slow-moving buying groups
+        4. Growth playbook integration - align with Cleantech GrowthLab methodologies
+        5. Data-driven decision making - use metrics for optimization
+        6. Industry-specific customization - tailor to Utilities, Enterprise Sustainability, IPPs, etc.
+        7. Scalable solutions - focus on repeatable, transferable processes"""
 
     def generate_followup_email(self, lead_data: Dict) -> str:
-        """Generate a personalized follow-up email for a lead"""
-        prompt = f"""Write a follow-up email to {lead_data['name']} at {lead_data['company']}.
-        They are a {lead_data['organization_type']} with a sustainability score of {lead_data['sustainability_score']}.
-        Focus on how our clean tech solutions can help them achieve their sustainability goals.
-        Include relevant metrics like CO2 reduction and energy savings.
-        Keep it friendly, professional, and informative."""
+        """Generate a professional follow-up email tailored to the lead's organization type"""
+        
+        # Tailor the approach based on organization type
+        if lead_data['organization_type'] == 'Investor':
+            focus = "ROI and financial metrics"
+            key_metrics = ["IRR", "NPV", "Payback period"]
+        elif lead_data['organization_type'] == 'Government':
+            focus = "Policy alignment and public benefit"
+            key_metrics = ["Carbon reduction targets", "Energy efficiency", "Public health impact"]
+        elif lead_data['organization_type'] == 'Corporate':
+            focus = "Corporate sustainability goals"
+            key_metrics = ["GHG emissions reduction", "Energy cost savings", "Sustainability reporting"]
+        else:  # NGO
+            focus = "Impact and scalability"
+            key_metrics = ["Community impact", "Environmental restoration", "Social benefits"]
+
+        prompt = f"""Craft a professional follow-up email to {lead_data['name']} at {lead_data['company']}.
+        
+        Key points:
+        1. They are a {lead_data['organization_type']} with a sustainability score of {lead_data['sustainability_score']}
+        2. Focus on {focus} and how our solutions align with their goals
+        3. Highlight relevant metrics: {', '.join(key_metrics)}
+        4. Include specific examples of successful implementations
+        5. Suggest a specific next step
+        6. Keep it concise (3-4 paragraphs)
+        7. End with a clear call-to-action
+        8. Sign off professionally
+        
+        Format:
+        Subject: [Your Company] - [Brief, compelling subject line]
+        
+        [Salutation]
+        
+        [First paragraph - Connection and context]
+        
+        [Second paragraph - Value proposition and metrics]
+        
+        [Third paragraph - Next steps]
+        
+        [Closing]
+        
+        [Signature]"""
         
         response = openai.ChatCompletion.create(
             model="gpt-3.5-turbo",
