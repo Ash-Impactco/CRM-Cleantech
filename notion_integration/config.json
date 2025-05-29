@@ -1,0 +1,87 @@
+{
+    "notion": {
+        "token": "${NOTION_TOKEN}",
+        "database_ids": {
+            "email_campaigns": "${EMAIL_DATABASE_ID}",
+            "linkedin_campaigns": "${LINKEDIN_DATABASE_ID}",
+            "success_metrics": "${METRICS_DATABASE_ID}",
+            "automation_logs": "${LOGS_DATABASE_ID}"
+        },
+        "api_version": "2022-06-28",
+        "retry": {
+            "max_attempts": 3,
+            "initial_delay_ms": 1000,
+            "backoff_factor": 2
+        },
+        "rate_limit": {
+            "requests_per_minute": 300,
+            "window_ms": 60000
+        },
+        "metrics": {
+            "email": {
+                "lead_score_threshold": 80,
+                "conversion_rate_target": 0.15,
+                "roi_target": 2.0,
+                "followup_frequency": "daily"
+            },
+            "linkedin": {
+                "connection_target": 50,
+                "engagement_rate_target": 0.3,
+                "meeting_target": 5,
+                "success_rate_target": 0.75
+            }
+        },
+        "notifications": {
+            "email": {
+                "enabled": true,
+                "recipients": ["admin@cleantechgrowthlab.com"],
+                "thresholds": {
+                    "error": 5,
+                    "warning": 10
+                }
+            },
+            "slack": {
+                "enabled": true,
+                "webhook_url": "${SLACK_WEBHOOK_URL}",
+                "channels": ["#marketing-automation"]
+            }
+        },
+        "automation": {
+            "schedules": {
+                "email": "0 9 * * 1-5",  // Every weekday at 9 AM
+                "linkedin": "0 10 * * 1-5", // Every weekday at 10 AM
+                "metrics": "0 12 * * 1-5"  // Every weekday at 12 PM
+            },
+            "batch_size": 50,
+            "max_concurrent": 5
+        },
+        "logging": {
+            "level": "INFO",
+            "format": "%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+            "file": "notion_integration.log",
+            "max_size_mb": 100,
+            "backup_count": 5
+        },
+        "security": {
+            "token_expiration": 3600,  // 1 hour
+            "api_key_rotation": "30d",
+            "ip_whitelist": [
+                "192.168.1.0/24",
+                "10.0.0.0/8"
+            ]
+        },
+        "monitoring": {
+            "enabled": true,
+            "metrics_endpoint": "${METRICS_ENDPOINT}",
+            "health_check_path": "/health",
+            "check_interval_ms": 30000
+        },
+        "backup": {
+            "enabled": true,
+            "frequency": "daily",
+            "retention_days": 30,
+            "storage_provider": "s3",
+            "bucket_name": "${BACKUP_BUCKET_NAME}"
+        }
+    }
+}
