@@ -206,8 +206,7 @@ Email Marketing → LinkedIn Marketing → Performance Analysis → Optimization
 ## 11. Support Information
 
 ### Contact
-- Email: support@cleantechgrowthlab.com
-- Website: cleantechgrowthlab.com
+- Email: ash.impactco@gmail.com
 - GitHub: github.com/Ash-Impactco/CRM-Cleantech
 
 ### Documentation
